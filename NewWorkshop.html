@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <form>
+       <div style="margin-bottom: 8px">
+          <label style="display: inline-block; width: 100px">Nom de l'hôte</label>
+          <input type="text" name="host" />
+          
+          <label style="display: inline-block; width: 50px">Date</label>
+          <input type="date" name="date" />
+       </div>
+       <div style="margin-bottom: 8px">
+          <label style="display: inline-block; width: 100px">ID workshop</label>    
+          <input type="text" name="idworkshop" />
+       </div>
+       <div style="margin-bottom: 8px">
+          <label style="display: inline-block; width: 155px">Number of participant</label>    
+          <input style="width: 102px" type="number" value="3" min="0" name="numparticipant" />
+       </div>
+       <div style="height: 100%"> </div>
+       <div style="display: flex;flex-direction: row-reverse;">
+          <button onClick="formSubmit(); return false;" value="submit">Create</button>
+       </div>
+    </form>
+  </body>
+  
+    <script type="text/javascript">
+        function formSubmit(){
+            console.log("Modal test");
+            console.log(document.forms[0]);
+            google.script.run.insertWorkshop(document.forms[0]);
+            google.script.host.close();
+        }
+        function success(e){alert(e);}
+        function fail(e){console.log(e);}
+    </script>
+</html>
+
+
